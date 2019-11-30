@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model CreditCardSolution.Models.CreditCard
+
+@using (Html.BeginForm()) {
+     @Html.AntiForgeryToken()
+     @Html.ValidationSummary()
+
+    <fieldset>
+        <legend>Credit card submission</legend>
+        <ol>
+            <li>
+                @Html.LabelFor(m => m.Digits)
+                @Html.TextBoxFor(m => m.Digits)
+            </li>
+        </ol>
+        <input type="submit" value="Verify Card" />
+    </fieldset>
+
+    if (ViewBag.Valid)
+    {
+        <span>Seu cartão de crédito @ViewBag.Type é valido</span>
+    }
+ }
